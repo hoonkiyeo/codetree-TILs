@@ -1,13 +1,14 @@
+import sys
 n = int(input())
 path = []
+min_dist = sys.maxsize
 for _ in range(n):
     x,y = map(int, input().split())
     path.append((x,y))
-
 paths = path.copy()
-min_dist = 9999
 
-for i in range(1, len(path)-1):
+
+for i in range(1,len(path)-1):
     dist = 0
     paths.pop(i)
     for j in range(len(paths)-1):
