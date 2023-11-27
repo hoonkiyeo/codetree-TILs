@@ -16,7 +16,7 @@ for i in range(len(nums)-2):
                                 num = x+y+z
                                 if num > max_n:
                                     max_n = num
-if max_n = 0:
+if max_n == 0:
     print(-1)
 else:
     print(max_n)
