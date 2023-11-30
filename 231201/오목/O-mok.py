@@ -17,6 +17,8 @@ def check_white(arr,x,y):
     if arr[x][y] == 2:
         return True
     return False
+def in_range(x,y):
+    return x >= 0 and y >= 0 and x <= 18 and y <= 18
 
 for i in range(19):
     for j in range(19):
@@ -33,6 +35,10 @@ for i in range(19):
                 idx_b = [i+2, j+2]
                 is_black = True
                 break
+            elif check_black(arr, i+1, j-1) and check_black(arr, i+2, j-2) and check_black(arr, i+3, j-3) and check_black(arr, i+4, j-4):
+                idx_b = [i+2, j-2]
+                is_black = True
+                break
         elif arr[i][j] == 2: # white
             if check_white(arr, i, j+1) and check_white(arr, i, j+2) and check_white(arr, i, j+3) and check_white(arr, i, j+4):
                 idx_w = [i,j+2]
@@ -44,6 +50,10 @@ for i in range(19):
                 break
             elif check_white(arr, i+1, j+1) and check_white(arr, i+2, j+2) and check_white(arr, i+3, j+3) and check_white(arr, i+4, j+4):
                 idx_w = [i+2, j+2]
+                is_white = True
+                break
+            elif check_white(arr, i+1, j-1) and check_white(arr, i+2, j-2) and check_white(arr, i+3, j-3) and check_white(arr, i+4, j-4):
+                idx_w = [i+2, j-2]
                 is_white = True
                 break
 
