@@ -4,24 +4,23 @@ for _ in range(n):
     arr.append(list(map(int, input().split())))
 
 max_cnt = 0
-max_cnt2 = 0
-idx = 0
-# max_cnt
-for i in range(n):
-    for j in range(n-2):
-        cnt = 0
-        cnt += (arr[i][j] + arr[i][j+1] + arr[i][j+2])
-        if cnt > max_cnt:
-            max_cnt = cnt
-            idx = (i,j)
+second_max_cnt = 0
+max_idx = (-1, -1)
 
-# second max_cnt
 for i in range(n):
-    for j in range(n-2):
-        cnt = 0
-        if i == idx[0] and idx[1] - 2 <= j <= idx[1] + 2:
-            continue 
-        cnt += (arr[i][j] + arr[i][j+1] + arr[i][j+2])
-        if cnt > max_cnt2:
-            max_cnt2 = cnt
-print(max_cnt + max_cnt2)
+    for j in range(n - 2):
+        current_sum = arr[i][j] + arr[i][j+1] + arr[i][j+2]
+
+        # Check for overlap with current max
+        if max_idx[0] == i and max_idx[1] - 2 <= j <= max_idx[1] + 2:
+            if current_sum > second_max_cnt:
+                second_max_cnt = current_sum
+        else:
+            if current_sum > max_cnt:
+                second_max_cnt = max_cnt
+                max_cnt = current_sum
+                max_idx = (i, j)
+            elif current_sum > second_max_cnt:
+                second_max_cnt = current_sum
+
+print(max_cnt + second_max_cnt)
