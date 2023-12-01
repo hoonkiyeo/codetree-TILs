@@ -18,7 +18,7 @@ for i in range(n):
 for i in range(n):
     for j in range(n-2):
         cnt = 0
-        if i == idx[0] and j == idx[1]:
+        if (i == idx[0] and j == idx[1]) or j == idx[1]-1 or j == idx[1]-2 or j == idx[1]+1 or j == idx[1]+2:
             continue 
         cnt += (arr[i][j] + arr[i][j+1] + arr[i][j+2])
         if cnt > max_cnt2:
