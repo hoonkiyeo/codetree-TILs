@@ -13,8 +13,7 @@ for i in range(n):
 
         # Check for overlap with current max
         if max_idx[0] == i and max_idx[1] - 2 <= j <= max_idx[1] + 2:
-            if current_sum > second_max_cnt:
-                second_max_cnt = current_sum
+            continue
         else:
             if current_sum > max_cnt:
                 second_max_cnt = max_cnt
