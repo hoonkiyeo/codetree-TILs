@@ -4,23 +4,15 @@ for _ in range(n):
     arr.append(list(map(int, input().split())))
 
 max_cnt = 0
-max_cnt2 = 0
-idx = 0
 
-# max_cnt
 for i in range(n):
     for j in range(n-2):
-        curr = arr[i][j] + arr[i][j+1] + arr[i][j+2]
-        if curr > max_cnt:
-            max_cnt = curr
-            idx = (i,j)
+        for k in range(n):
+            for l in range(n-2):
+                if i == k and abs(j-l) <= 2:
+                    continue
+                cnt1 = arr[i][j] + arr[i][j+1] + arr[i][j+2]
+                cnt2 = arr[k][l] + arr[k][l+1] + arr[k][l+2]
+                max_cnt = max(max_cnt, cnt1+cnt2)
 
-# second max_cnt
-for i in range(n):
-    for j in range(n-2):
-        if i == idx[0] and idx[1] - 2 <= j <= idx[1] + 2:
-            continue 
-        curr = arr[i][j] + arr[i][j+1] + arr[i][j+2]
-        if curr > max_cnt2:
-            max_cnt2 = curr
-print(max_cnt + max_cnt2)
+print(max_cnt)
