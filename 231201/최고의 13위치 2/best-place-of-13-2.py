@@ -23,6 +23,4 @@ for i in range(n):
         cnt += (arr[i][j] + arr[i][j+1] + arr[i][j+2])
     if cnt > max_cnt2:
         max_cnt2 = cnt
-        idx = (i,j)
-
 print(max_cnt + max_cnt2)
