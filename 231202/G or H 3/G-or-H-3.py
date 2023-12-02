@@ -8,7 +8,7 @@ for _ in range(n):
 max_score = 0
 for i in range(1, k+1):
     score = 0
-    for j in range(i, i+k+1):
-        score += positions[j]
+    score += sum(positions[i:i+k+1])
     max_score = max(max_score, score)
+
 print(max_score)
