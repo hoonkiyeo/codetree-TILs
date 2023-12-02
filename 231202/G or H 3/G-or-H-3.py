@@ -14,7 +14,7 @@ for ele in arr:
         placed[ele[0]] = 2
 
 max_score = 0
-for i in range(1, max_num-k+1):
+for i in range(1, k+1):
     score = 0
     for j in range(i, i+k+1):
         score += placed[j]
