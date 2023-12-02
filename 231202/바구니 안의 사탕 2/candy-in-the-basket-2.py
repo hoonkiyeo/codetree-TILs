@@ -6,8 +6,12 @@ for _ in range(n):
     positions[i] += c
     max_pos = max(i, max_pos)
 
-max_cnt = 0
-for i in range(1, max_pos-k*2+1):
-    cnt = sum(positions[i:i+k*2+1])
-    max_cnt = max(cnt, max_cnt)
-print(max_cnt)
+
+if max_pos < k*2:
+    print(sum(positions))
+else:
+    max_cnt = 0
+    for i in range(1, max_pos-k*2+1):
+        cnt = sum(positions[i:i+k*2+1])
+        max_cnt = max(cnt, max_cnt)
+    print(max_cnt)
