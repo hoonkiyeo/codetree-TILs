@@ -22,7 +22,7 @@ def check2(n1,n2):
 
 cnt = 0
 for n1 in range(111, 999):
-    if str(n1)[0] != str(n1)[1] != str(n1)[2]:
+    if str(n1)[0] != str(n1)[1] and str(n1)[0] != str(n1)[2] and str(n1)[1] != str(n1)[2]:
         if str(n1)[0] != '0' and str(n1)[1] != '0' and str(n1)[2] != '0':
             is_pass = True
             for n2, a, b in arr:
