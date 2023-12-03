@@ -4,6 +4,9 @@ arr = []
 for _ in range(n):
     arr.append(list(map(int, input().split())))
 
+# 1
+# 123 0 0
+
 def check1(n1,n2):
     n1 = str(n1)
     n2 = str(n2)
@@ -20,11 +23,12 @@ def check2(n1,n2):
 cnt = 0
 for n1 in range(111, 999):
     if str(n1)[0] != str(n1)[1] != str(n1)[2]:
-        is_pass = True
-        for n2, a, b in arr:
-            if check1(n1,n2) != a or check2(n1,n2) != b:
-                is_pass = False
-        if is_pass:
-            cnt += 1
+        if str(n1)[0] != '0' and str(n1)[1] != '0' and str(n1)[2] != '0':
+            is_pass = True
+            for n2, a, b in arr:
+                if check1(n1,n2) != a or check2(n1,n2) != b:
+                    is_pass = False
+            if is_pass:
+                cnt += 1
     continue
 print(cnt)
