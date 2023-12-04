@@ -7,7 +7,7 @@ for _ in range(n):
 min_dist = 9999999
 idx = (0,0)
 for i in range(n):
-    for j in range(n):
+    for j in range(i+1, n):
         if i == j:
             continue
         x1,y1 = coords[i][0], coords[i][1]
