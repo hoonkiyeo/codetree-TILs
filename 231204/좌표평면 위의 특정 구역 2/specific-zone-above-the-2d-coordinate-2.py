@@ -6,8 +6,11 @@ for _ in range(n):
     coords.append((x,y))
 
 
+
+
+
+min_area = 9999999999
 for i in range(n):
-    min_area = 9999999999
     min_x = 40001
     max_x = 0
     min_y = 40001
