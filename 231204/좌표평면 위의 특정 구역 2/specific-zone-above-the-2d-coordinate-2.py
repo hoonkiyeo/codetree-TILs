@@ -7,7 +7,7 @@ for _ in range(n):
 
 
 for i in range(n):
-    min_area = 160001
+    min_area = 999999999999999999
     min_x = 40001
     max_x = 0
     min_y = 40001
