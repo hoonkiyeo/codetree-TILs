@@ -11,4 +11,7 @@ for i in range(n):
         if bombs[i] == bombs[j]:
             max_bomb = max(max_bomb, bombs[i])
 
-print(max_bomb)
+if max_bomb == 0:
+    print(-1)
+else:
+    print(max_bomb)
