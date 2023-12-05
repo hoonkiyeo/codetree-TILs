@@ -9,19 +9,21 @@ max_cnt = 0
 for i in range(n):
     cnt = 0
     total = 0
-
     p,s = presents[i]
     p = p // 2
     total += (p+s)
     cnt += 1
+
     for j in range(n):
         if i == j:
             continue
-        if total >= b:
+        p,s = presents[j]
+        total += (p+s)
+        cnt += 1
+        if total == b:
             break
-        else:
-            p,s = presents[j]
-            total += (p+s)
-            cnt += 1
+        elif total > b:
+            cnt -= 1
+            break
     max_cnt = max(max_cnt, cnt)
-print(cnt)
+print(max_cnt)
