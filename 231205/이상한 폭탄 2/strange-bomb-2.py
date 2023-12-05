@@ -1,9 +1,7 @@
 n,k = map(int, input().split())
 bombs = [int(input()) for _ in range(n)]
-bombs.sort()
 
-
-max_bomb = 0
+max_bomb = -1
 for i in range(n):
     for j in range(i+1, n):
         if j - i > 3:
@@ -11,7 +9,4 @@ for i in range(n):
         if bombs[i] == bombs[j]:
             max_bomb = max(max_bomb, bombs[i])
 
-if max_bomb == 0:
-    print(-1)
-else:
-    print(max_bomb)
+print(max_bomb)
