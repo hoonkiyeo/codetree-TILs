@@ -36,7 +36,7 @@ for i in range(len(sick)):
             if time2 < time:
                 bad_cheese[cheese] += 1
 for i in range(len(bad_cheese)):
-    if bad_cheese[i] >= sick_cnt:
+    if bad_cheese[i] == sick_cnt:
         final_cheese.append(i)
 
 sick_cnt2 = 0
