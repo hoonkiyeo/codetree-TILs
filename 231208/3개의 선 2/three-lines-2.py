@@ -4,18 +4,40 @@ for _ in range(n):
     x,y = map(int, input().split())
     coords.append((x,y))
 
-def check():
-    xys = [[0, 0, 0], [0, 0, 1], [0, 1, 0], [0, 1, 1], [1, 0, 0], [1, 0, 1], [1, 1, 0], [1, 1, 1]]
-    for i in range(0, 11):
-        for j in range(0, 11):
-            for k in range(0, 11):
-                for xy1, xy2, xy3 in xys:
-                    stoppoint = True
-                    for point in coords:
-                        if point[xy1] == i or point[xy2] == j or point[xy3] == k:
-                            continue
-                        stoppoint = False
-                    if stoppoint:
-                        return 1
-    return 0
-print(check())
+ans = 0
+for i in range(11):
+    for j in range(11):
+        for k in range(11):
+            
+            success = True
+            for x,y in coords:
+                if x == i or x == j or x == k:
+                    continue
+                success = False
+            if success:
+                ans = 1
+
+            success = True
+            for x,y in coords:
+                if x == i or x ==j or y == k:
+                    continue
+                success = False
+            if success:
+                ans = 1
+
+            success = True
+            for x,y in coords:
+                if x == i or y==j or y == k:
+                    continue
+                success = False
+            if success:
+                ans = 1
+
+            success = True
+            for x,y in coords:
+                if y== i or y==j or y == k:
+                    continue
+                success = False
+            if success:
+                ans = 1
+print(ans)
