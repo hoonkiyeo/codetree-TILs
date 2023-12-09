@@ -5,7 +5,9 @@ max_cnt = 0
 for i in range(n):
     a = nums[i]
     cnt = 1
-    for j in range(i+1, n):
+    for j in range(n):
+        if i == j:
+            continue
         b = nums[j]
         if b >= a and b - a <= k:
             cnt += 1
