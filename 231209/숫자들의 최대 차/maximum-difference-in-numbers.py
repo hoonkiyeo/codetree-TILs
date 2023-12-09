@@ -7,7 +7,7 @@ for i in range(n):
     cnt = 1
     for j in range(i+1, n):
         b = nums[j]
-        if abs(a-b) <= k:
+        if b >= a and b - a <= k:
             cnt += 1
     max_cnt = max(max_cnt, cnt)
 print(max_cnt)
