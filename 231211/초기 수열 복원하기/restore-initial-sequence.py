@@ -1,19 +1,24 @@
-from itertools import combinations
-from itertools import permutations
-
 n = int(input())
 arr = list(map(int, input().split()))
-arr2 = [x for x in range(1, n+1)]
-perms = list(permutations(arr2, n))
 
+def find_sequence(n, arr):
 
-for perm in perms:
-    is_bool = True
-    for i in range(n-1):
-        if perm[i] + perm[i+1] != arr[i]:
-            is_bool = False
-    if is_bool:
-        break
+    for i in range(1,n+1):
+        for j in range(1, n+1):
+            if i != j and i+j == arr[0]:
+                seq = [i,j]
+                used = {i,j}
 
-for ele in perm:
+                for k in range(1, n-1):
+                    next_num = arr[k] - seq[-1]
+                    if 1 <= next_num <= n and next_num not in used:
+                        seq.append(next_num)
+                        used.add(next_num)
+                    else:
+                        break
+                if len(seq) == n:
+                    return seq
+    return None
+
+for ele in find_sequence(n,arr):
     print(ele, end=' ')
