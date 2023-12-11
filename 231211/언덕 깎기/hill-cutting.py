@@ -1,7 +1,7 @@
 n = int(input())
 arr = [int(input()) for _ in range(n)]
 
-min_cost = 999
+min_cost = 999999
 for i in range(n):
     for j in range(i+1,n):
         max_h = max(arr[i], arr[j])
