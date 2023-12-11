@@ -1,3 +1,5 @@
+from collections import Counter
+
 def calculate_h_score(sequence):
     sequence.sort(reverse=True)
     h_score = 0
@@ -7,17 +9,10 @@ def calculate_h_score(sequence):
     return h_score
 
 def max_h_score(N, L, sequence):
-    frequency = {}
-    for num in sequence:
-        if num in frequency:
-            frequency[num] += 1
-        else:
-            frequency[num] = 1
+    count = Counter(sequence)
+    most_common = count.most_common()
 
-    # 빈도수에 따라 정렬
-    sorted_nums = sorted(frequency.items(), key=lambda x: x[1], reverse=True)
-
-    for num, freq in sorted_nums:
+    for num, freq in most_common:
         if L <= 0:
             break
         increase = min(L, freq)
