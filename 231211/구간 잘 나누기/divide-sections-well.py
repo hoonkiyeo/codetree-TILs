@@ -1,17 +1,18 @@
-import sys
 n, m = map(int, input().split())
 arr = list(map(int, input().split()))
 
+ans = sum(arr)
 for i in range(max(arr), sum(arr)+1):
-    tmp = []
-    val_sum = arr[0]
-    for j in range(1, n):
-        if val_sum + arr[j] > i:
-            tmp.append(val_sum)
-            val_sum = arr[j]
-        else:
-            val_sum += arr[j]
-    tmp.append(val_sum)
-    if len(tmp) <= m:
-        print(i)
-        break
+
+    section = 1
+    cnt = 0
+
+    for j in range(n):
+        if cnt + arr[j] > i:
+            cnt = 0
+            section += 1
+        cnt += arr[j]
+
+    if section <= m:
+        ans = min(ans, i)
+print(ans)
