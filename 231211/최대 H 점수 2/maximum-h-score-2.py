@@ -1,24 +1,35 @@
 def calculate_h_score(sequence):
     sequence.sort(reverse=True)
     h_score = 0
-    for i in range(len(sequence)):
-        if sequence[i] >= i + 1:
-            h_score = i + 1
+    for i, num in enumerate(sequence):
+        if i + 1 >= num:
+            h_score = max(h_score, num)
     return h_score
 
 def max_h_score(N, L, sequence):
-    original_h_score = calculate_h_score(sequence)
-    if L == 0:
-        return original_h_score
+    frequency = {}
+    for num in sequence:
+        if num in frequency:
+            frequency[num] += 1
+        else:
+            frequency[num] = 1
 
-    for _ in range(L):
-        sequence.sort(reverse=True)
+    # 빈도수에 따라 정렬
+    sorted_nums = sorted(frequency.items(), key=lambda x: x[1], reverse=True)
+
+    for num, freq in sorted_nums:
+        if L <= 0:
+            break
+        increase = min(L, freq)
+        L -= increase
         for i in range(len(sequence)):
-            if i == 0 or sequence[i] != sequence[i - 1]:
+            if sequence[i] == num:
                 sequence[i] += 1
-                break
+                increase -= 1
+                if increase == 0:
+                    break
 
-    return max(original_h_score, calculate_h_score(sequence))
+    return calculate_h_score(sequence)
 
 def main():
     N, L = map(int, input().split())
