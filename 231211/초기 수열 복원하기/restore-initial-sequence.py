@@ -6,11 +6,13 @@ arr = list(map(int, input().split()))
 arr2 = [x for x in range(1, n+1)]
 perms = list(permutations(arr2, n))
 
+
 for perm in perms:
-    ans = []
+    is_bool = True
     for i in range(n-1):
-        ans.append(perm[i] + perm[i+1])
-    if ans == arr:
+        if perm[i] + perm[i+1] != arr[i]:
+            is_bool = False
+    if is_bool:
         break
 
 for ele in perm:
