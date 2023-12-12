@@ -10,7 +10,7 @@ def is_possible(max_val):
             last_idx = i
     return True
 
-for i in range(max(arr[0], arr[n-1]), max_num + 1):
+for i in range(max(arr[0], arr[n-1]), 101):
     if is_possible(i):
         print(i)
         break
