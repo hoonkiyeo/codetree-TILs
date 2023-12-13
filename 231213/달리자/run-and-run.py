@@ -3,12 +3,10 @@ A = list(map(int, input().split()))
 B = list(map(int, input().split()))
 
 total_dist = 0
-move = 0
 for i in range(n):
-    diff = A[i] - B[i]
-    move += diff
-
-    if move > 0:
-        total_dist += move
-
+    if A[i] > B[i]:
+        diff = A[i] - B[i]
+        A[i] -= diff
+        A[i+1] += diff
+        total_dist += diff
 print(total_dist)
