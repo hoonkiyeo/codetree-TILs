@@ -20,7 +20,7 @@ for i in range(n):
         if y == 1:
             cnt1 += 1
         elif y == 3:
-            cnt1 += 1
+            cnt2 += 1
     elif x == 3:
         if y == 2:
             cnt1 += 1
