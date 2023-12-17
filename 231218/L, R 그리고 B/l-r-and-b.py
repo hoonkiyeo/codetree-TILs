@@ -1,14 +1,3 @@
-# L -> B
-
-# B: 4,3
-# L: 9,6
-# R: 6,6
-# -> 7
-
-# B: 2,3
-# L: 8,2
-# R: 5,2
-# -> 6
 arr = []
 n = 10
 for _ in range(n):
@@ -27,5 +16,13 @@ for i in range(n):
         elif arr[i][j] == 'R':
             idx_r = (i,j)
 
-min_dist = abs(idx_b[0] - idx_l[0]) + abs(idx_b[1] - idx_l[1]) - 1
+min_dist = min_dist = abs(idx_b[0] - idx_l[0]) + abs(idx_b[1] - idx_l[1]) - 1
+
+if idx_b[0] < idx_r[0] < idx_l[0] or idx_l[0] < idx_r[0] < idx_b[0]:
+    if idx_b[1] == idx_l[1] == idx_r[1]:
+        min_dist = abs(idx_b[0] - idx_l[0]) + abs(idx_b[1] - idx_l[1]) + 1
+elif idx_b[1] < idx_r[1] < idx_l[1] or idx_l[1] < idx_r[1] < idx_b[1]:
+    if idx_b[0] == idx_l[0] == idx_r[0]:
+        min_dist = abs(idx_b[0] - idx_l[0]) + abs(idx_b[1] - idx_l[1]) + 1
+
 print(min_dist)
