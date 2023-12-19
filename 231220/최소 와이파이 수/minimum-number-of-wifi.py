@@ -2,7 +2,7 @@ n,m = map(int, input().split())
 pos = list(map(int, input().split()))
 
 def min_wifi(n,m,arr):
-    i == 0
+    i = 0
     cnt = 0
 
     while i < n:
