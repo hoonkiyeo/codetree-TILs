@@ -15,4 +15,4 @@ def min_wifi(n,m,arr):
     
     return cnt
 
-print(cnt)
+print(min_wifi(n,m,pos))
