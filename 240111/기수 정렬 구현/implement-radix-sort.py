@@ -8,8 +8,9 @@ for i in range(k):
         digit[(num//(10**i))%10].append(num)
     numbers = []
 
-    for d in range(10) :
-        for num in digit[d] :
+    for d in range(10):
+        for num in digit[d]:
             numbers.append(num)
+
 for ele in numbers:
   print(ele, end=' ')
