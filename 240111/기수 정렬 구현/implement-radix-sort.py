@@ -11,6 +11,8 @@ for i in range(k):
     for d in range(10):
         for num in digit[d]:
             numbers.append(num)
+    
+    arr = numbers
 
 for ele in numbers:
   print(ele, end=' ')
