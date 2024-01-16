@@ -33,7 +33,7 @@ for p in c:
     else:
         s.pop()
 
-if s.empty:
-    print('No')
-else:
+if s.empty():
     print('Yes')
+else:
+    print('No')
