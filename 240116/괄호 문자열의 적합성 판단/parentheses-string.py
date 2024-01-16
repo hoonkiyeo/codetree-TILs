@@ -35,7 +35,7 @@ for c in string:
     else:
         if s.empty():
             print('No')
-            break
+            sys.exit(0)
         s.pop()
 
 if s.empty():
