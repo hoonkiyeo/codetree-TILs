@@ -27,12 +27,15 @@ class Stack:
 
 
 s = Stack()
-c = sys.stdin.readline()
+string = sys.stdin.readline()
 
-for p in c:
-    if p == '(':
-        s.push(p)
+for c in string:
+    if c == '(':
+        s.push(c)
     else:
+        if s.empty():
+            print('No')
+            break
         s.pop()
 
 if s.empty():
