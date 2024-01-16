@@ -1,3 +1,5 @@
+import sys
+
 class Stack:
     def __init__(self):          # 빈 스택 하나를 생성합니다.
         self.items = []
@@ -25,7 +27,7 @@ class Stack:
 
 
 s = Stack()
-c = input()
+c = sys.stdin.readline()
 
 for p in c:
     if p == '(':
