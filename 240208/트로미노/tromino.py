@@ -11,8 +11,8 @@ case_3 = 0
 case_4 = 0
 case_5 = 0
 case_6 = 0
-for row in range(n):
-    for col in range(m):
+for col in range(m):
+    for row in range(n):
         # case1
         if in_range(row,col) and in_range(row+1, col) and in_range(row+1, col+1):
             case_1 = arr[row][col] + arr[row+1][col] + arr[row+1][col+1]
