@@ -26,6 +26,8 @@ for row in range(n):
     for col in range(n):
         for k in range(1, n):
             for l in range(1, n):
+                if k == l:
+                    continue
                 max_score = max(max_score, get_score(row, col, k, l))
 
 print(max_score)
